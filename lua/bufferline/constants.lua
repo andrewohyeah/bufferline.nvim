@@ -2,9 +2,9 @@ local M = {}
 ---------------------------------------------------------------------------//
 -- Constants
 ---------------------------------------------------------------------------//
-M.padding = " "
+M.padding = ""
 
-M.indicator = "▎"
+M.indicator = ""
 
 M.sep_names = {
   thin = "thin",
@@ -17,7 +17,7 @@ M.sep_names = {
 M.sep_chars = {
   [M.sep_names.thin] = { "▏", "▕" },
   [M.sep_names.thick] = { "▌", "▐" },
-  [M.sep_names.slant] = { "", "" },
+  [M.sep_names.slant] = { "", "" },
   [M.sep_names.padded_slant] = { "" .. M.padding, "" .. M.padding },
 }
 
