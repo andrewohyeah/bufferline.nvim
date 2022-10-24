@@ -431,11 +431,11 @@ local function create_renderer(left_separator, right_separator, component)
       return component
     end
 
-    --if left_separator then
-      --table.insert(component, 1, left_separator)
-      --table.insert(component, right_separator)
-      --return component
-    --end
+    if left_separator then
+      table.insert(component, 1, left_separator)
+      table.insert(component, right_separator)
+      return component
+    end
 
     if next_item then table.insert(component, right_separator) end
 
