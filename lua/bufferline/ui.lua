@@ -403,13 +403,22 @@ local function get_max_length(context)
   return options.tab_size - strwidth(modified) - icon_size - padding_size
 end
 
+local tab_names = {}
+
 ---@param ctx RenderContext
 ---@return Segment
 local function get_name(ctx)
   local name = utils.truncate_name(ctx.tab.name, get_max_length(ctx))
   -- escape filenames that contain "%" as this breaks in statusline patterns
   name = name:gsub("%%", "%%%1")
+
+  name = tab_names[ctx.tab.id] or name
+
   return { text = name, highlight = ctx.current_highlights.buffer }
+end
+
+function M.set_name(id, name)
+    tab_names[id] = name
 end
 
 ---Create the render function that components need to position their
